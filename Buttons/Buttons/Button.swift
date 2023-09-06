@@ -57,7 +57,6 @@ class Button: UIButton {
                 self.setTitleColor(UIColor.systemGray3, for: .normal)
                 
             } else {
-                self.backgroundColor = nil
                 self.configuration?.baseBackgroundColor = UIColor.systemBlue
                 self.configuration?.baseForegroundColor = UIColor.white
             }
