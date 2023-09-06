@@ -22,6 +22,7 @@ class Button: UIButton {
         configuration?.buttonSize = .medium
         configuration?.imagePadding = 8
         configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14)
+        layer.cornerRadius = 8
         self.tintAdjustmentMode = .automatic
         
         addTarget(self, action: #selector(self.buttonPressed), for: .touchDown)
@@ -52,10 +53,11 @@ class Button: UIButton {
         override func tintColorDidChange() {
             super.tintColorDidChange()
             if self.tintAdjustmentMode == .dimmed {
-                self.configuration?.baseBackgroundColor = UIColor.black
-                self.configuration?.baseForegroundColor = UIColor.systemGray2
+                self.backgroundColor = UIColor.systemGray2
+                self.setTitleColor(UIColor.systemGray3, for: .normal)
                 
             } else {
+                self.backgroundColor = nil
                 self.configuration?.baseBackgroundColor = UIColor.systemBlue
                 self.configuration?.baseForegroundColor = UIColor.white
             }
