@@ -45,10 +45,7 @@ class ViewController: UIViewController {
         ])
         
         buttonThree.addAction(UIAction { _ in
-            self.present(self.bottomSheet, animated: true, completion: {
-                self.buttonThree.tintColorDidChange()
-            })
-            self.buttonThree.tintColorDidChange()
+            self.present(self.bottomSheet, animated: true, completion: {})
         }, for: .touchUpInside)
     }
     
