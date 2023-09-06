@@ -52,6 +52,10 @@ class Button: UIButton {
         if self.tintAdjustmentMode == .dimmed {
             self.configuration?.baseBackgroundColor = UIColor.systemGray3
             self.configuration?.baseForegroundColor = UIColor.systemGray2
+            
+        } else {
+            self.configuration?.baseBackgroundColor = UIColor.systemBlue
+            self.configuration?.baseForegroundColor = UIColor.white
         }
     }
     
