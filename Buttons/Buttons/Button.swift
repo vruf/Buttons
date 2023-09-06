@@ -22,16 +22,18 @@ class Button: UIButton {
         configuration?.buttonSize = .medium
         configuration?.imagePadding = 8
         configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14)
+        self.tintAdjustmentMode = .automatic
         
         addTarget(self, action: #selector(self.buttonPressed), for: .touchDown)
         addTarget(self, action: #selector(self.releaseButton), for: .touchUpInside)
         addTarget(self, action: #selector(self.releaseButton), for: .touchUpOutside)
         
+        self.tintColorDidChange()
     }
     
     @objc func buttonPressed(button: UIButton) {
         UIView.animate(
-            withDuration: 0.1,
+            withDuration: 0.05,
             animations: {button.transform = button.transform.scaledBy(x: 0.90, y: 0.90)},
             completion: {_ in }
         )
@@ -47,17 +49,17 @@ class Button: UIButton {
         )
     }
     
-    override func tintColorDidChange() {
-        super.tintColorDidChange()
-        if self.tintAdjustmentMode == .dimmed {
-            self.configuration?.baseBackgroundColor = UIColor.systemGray3
-            self.configuration?.baseForegroundColor = UIColor.systemGray2
-            
-        } else {
-            self.configuration?.baseBackgroundColor = UIColor.systemBlue
-            self.configuration?.baseForegroundColor = UIColor.white
+        override func tintColorDidChange() {
+            super.tintColorDidChange()
+            if self.tintAdjustmentMode == .dimmed {
+                self.configuration?.baseBackgroundColor = UIColor.black
+                self.configuration?.baseForegroundColor = UIColor.systemGray2
+                
+            } else {
+                self.configuration?.baseBackgroundColor = UIColor.systemBlue
+                self.configuration?.baseForegroundColor = UIColor.white
+            }
         }
-    }
     
     
 }
