@@ -45,9 +45,6 @@ class ViewController: UIViewController {
         ])
         
         buttonThree.addAction(UIAction { _ in
-            self.buttonThree.configuration?.baseBackgroundColor = UIColor.systemGray3
-            self.buttonThree.configuration?.baseForegroundColor = UIColor.systemGray2
-    
             self.present(self.bottomSheet, animated: true, completion: {})
         }, for: .touchUpInside)
     }
